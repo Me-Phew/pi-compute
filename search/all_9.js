@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zaawansowane_20szablon_0',['Programowanie zaawansowane - szablon',['../md_README.html#autotoc_md0',1,'']]]
+  ['z_20pomoc_20ai_0',['Implementacja wyliczania przyblionej wartoci liczby PI metod cakowania numerycznego w C++ z pomoc AI',['../md_README.html#autotoc_md0',1,'']]]
 ];

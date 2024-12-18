@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['features_20funkcjonalno_20a_0',['&lt;a name=&quot;features&quot;&gt; Funkcjonalno&lt;/a&gt;',['../md_README.html#autotoc_md3',1,'']]],
-  ['funkcjonalno_20a_1',['&lt;a name=&quot;features&quot;&gt; Funkcjonalno&lt;/a&gt;',['../md_README.html#autotoc_md3',1,'']]]
+  ['c_20z_20pomoc_20ai_0',['Implementacja wyliczania przyblionej wartoci liczby PI metod cakowania numerycznego w C++ z pomoc AI',['../md_README.html#autotoc_md0',1,'']]],
+  ['cakowania_20numerycznego_20w_20c_20z_20pomoc_20ai_1',['Implementacja wyliczania przyblionej wartoci liczby PI metod cakowania numerycznego w C++ z pomoc AI',['../md_README.html#autotoc_md0',1,'']]]
 ];

@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['name_20features_20funkcjonalno_20a_0',['&lt;a name=&quot;features&quot;&gt; Funkcjonalno&lt;/a&gt;',['../md_README.html#autotoc_md3',1,'']]],
-  ['name_20license_20licencja_20a_1',['&lt;a name=&quot;license&quot;&gt; Licencja&lt;/a&gt;',['../md_README.html#autotoc_md4',1,'']]],
-  ['name_20usage_20uycie_20a_2',['&lt;a name=&quot;usage&quot;&gt; Uycie&lt;/a&gt;',['../md_README.html#autotoc_md2',1,'']]]
+  ['licencja_20a_0',['&lt;a name=&quot;license&quot;&gt; Licencja&lt;/a&gt;',['../md_README.html#autotoc_md1',1,'']]],
+  ['license_20licencja_20a_1',['&lt;a name=&quot;license&quot;&gt; Licencja&lt;/a&gt;',['../md_README.html#autotoc_md1',1,'']]],
+  ['liczby_20pi_20metod_20cakowania_20numerycznego_20w_20c_20z_20pomoc_20ai_2',['Implementacja wyliczania przyblionej wartoci liczby PI metod cakowania numerycznego w C++ z pomoc AI',['../md_README.html#autotoc_md0',1,'']]],
+  ['list_3',['List',['../classList.html',1,'']]]
 ];
