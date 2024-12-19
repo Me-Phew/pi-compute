@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['list_0',['List',['../classList.html',1,'']]]
+  ['integralcalculator_0',['IntegralCalculator',['../classIntegralCalculator.html',1,'']]]
 ];

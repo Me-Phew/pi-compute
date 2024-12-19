@@ -1,4 +1,4 @@
 var annotated_dup =
 [
-    [ "List", "classList.html", null ]
+    [ "IntegralCalculator", "classIntegralCalculator.html", "classIntegralCalculator" ]
 ];
