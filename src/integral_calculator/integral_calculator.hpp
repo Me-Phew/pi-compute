@@ -16,21 +16,21 @@
 class IntegralCalculator {
 
 private:
-  long long num_intervals;
-  int num_threads;
+  long long numIntervals;
+  int numThreads;
   double result;
-  double computation_time;
+  double computationTime;
 
-  double calculate_partial(long long start, long long end);
+  double calculatePartial(long long start, long long end);
 
 public:
   IntegralCalculator(long long intervals, int threads);
 
   void calculate();
 
-  double get_result();
+  double getResult();
 
-  double get_computation_time();
+  double getComputationTime();
 };
 
 #endif /* INTEGRAL_CALCULATOR_HPP */

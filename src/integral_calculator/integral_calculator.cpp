@@ -13,15 +13,10 @@
 #include <vector>
 #include <cmath>
 
-IntegralCalculator::IntegralCalculator(long long intervals, int threads) {
-  num_intervals = intervals;
-  num_threads = threads;
-  result = 0;
-  computation_time = 0;
-}
+IntegralCalculator::IntegralCalculator(long long intervals, int threads) : numIntervals(intervals), numThreads(threads), result(0), computationTime(0) {}
 
-double IntegralCalculator::calculate_partial(long long start, long long end) {
-  double dx = 1.0 / num_intervals;
+double IntegralCalculator::calculatePartial(long long start, long long end) {
+  double dx = 1.0 / numIntervals;
   double sum = 0;
 
   for (long long i = start; i < end; ++i) {
@@ -36,14 +31,14 @@ void IntegralCalculator::calculate() {
   auto start = std::chrono::high_resolution_clock::now();
   std::vector<std::thread> threads;
 
-  std::vector<double> results(num_threads);
+  std::vector<double> results(numThreads);
 
-  for (int i = 0; i < num_threads; ++i) {
-    long long start = i * num_intervals / num_threads;
-    long long end = (i + 1) * num_intervals / num_threads;
+  for (int i = 0; i < numThreads; ++i) {
+    long long start = i * numIntervals / numThreads;
+    long long end = (i + 1) * numIntervals / numThreads;
 
     threads.push_back(std::thread([this, start, end, i, &results]() {
-      results[i] = calculate_partial(start, end);
+      results[i] = calculatePartial(start, end);
       }));
   }
 
@@ -52,20 +47,20 @@ void IntegralCalculator::calculate() {
   }
 
   result = 0;
-  for (int i = 0; i < num_threads; i++) {
+  for (int i = 0; i < numThreads; i++) {
     result += results[i];
   }
 
-  result *= 1.0 / num_intervals;
+  result *= 1.0 / numIntervals;
 
   auto end = std::chrono::high_resolution_clock::now();
-  computation_time = std::chrono::duration<double>(end - start).count();
+  computationTime = std::chrono::duration<double>(end - start).count();
 }
 
-double IntegralCalculator::get_result() {
+double IntegralCalculator::getResult() {
   return result;
 }
 
-double IntegralCalculator::get_computation_time() {
-  return computation_time;
+double IntegralCalculator::getComputationTime() {
+  return computationTime;
 }
