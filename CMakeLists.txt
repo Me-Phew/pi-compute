@@ -5,7 +5,9 @@ project(PiCompute)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(SOURCES src/main.cpp)
+include_directories(src/integral_calculator src/utils)
+
+set(SOURCES src/integral_calculator/integral_calculator.cpp src/utils/utils.cpp src/main.cpp)
 
 add_executable(PiCompute ${SOURCES})
 
