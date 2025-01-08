@@ -1,6 +1,55 @@
 \newpage
-\section{Analiza problemu}		%2
-%Napisać gdzie używa się tego algorytmu
-%Opisać sposób działania programu/algorytmu
-%Napisać spsoób wykorzystania algorytmu po przez wykonanie przykładu (np. mnożenie macierzy - wykonać ręcznie przykład z mnożeniem macierzy pokazujący jak mnoży się macierz ręcznie)
-%Jeśli zadanie zakłada przedstawienie jakiegoś narzędzia (np. git, AI) należy opisać narzędzie
+\section{Analiza problemu}
+
+\subsection{Zastosowanie algorytmu}
+Algorytmy całkowania numerycznego znajdują szerokie zastosowanie w wielu dziedzinach nauki i techniki. Są szczególnie użyteczne w sytuacjach, gdy funkcja nie posiada analitycznego rozwiązania całki lub gdy dostępne są tylko dane dyskretne. Przykłady zastosowań obejmują:
+\begin{itemize}
+  \item Obliczanie pól powierzchni pod wykresami funkcji w fizyce i inżynierii.
+  \item Modelowanie zjawisk przyrodniczych, takich jak przepływ ciepła, dynamika płynów czy mechanika kwantowa.
+  \item Analizę danych eksperymentalnych w statystyce i ekonomii.
+  \item Symulacje komputerowe w informatyce i matematyce stosowanej.
+\end{itemize}
+
+W kontekście tego projektu, metoda numerycznego całkowania służy do aproksymacji wartości liczby $\pi$ na podstawie całki oznaczonej z funkcji $\frac{4}{1+x^2}$ na przedziale $[0, 1]$.
+
+\subsection{Opis działania programu i algorytmu}
+Program realizuje aproksymację liczby $\pi$ za pomocą numerycznej metody prostokątów. Algorytm podzielony jest na następujące kroki:
+\begin{enumerate}
+  \item Podział przedziału całkowania na określoną przez użytkownika liczbę podprzedziałów.
+  \item Obliczanie wartości funkcji w środku każdego podprzedziału.
+  \item Sumowanie wyników mnożonych przez szerokość podprzedziału, aby uzyskać przybliżenie całki.
+  \item Zastosowanie wielowątkowości w celu równoległego obliczania sum częściowych, co przyspiesza obliczenia dla dużej liczby przedziałów.
+\end{enumerate}
+
+Wyniki obliczeń oraz czas wykonania są wyświetlane na konsoli oraz zapisywane do pliku CSV.
+
+\subsection{Przykład zastosowania algorytmu}
+Dla ilustracji, załóżmy, że całkujemy funkcję $\frac{4}{1+x^2}$ na przedziale $[0, 1]$ przy użyciu 4 podprzedziałów:
+\begin{enumerate}
+  \item Podzielmy przedział $[0, 1]$ na 4 równe części: $[0, 0.25]$, $[0.25, 0.5]$, $[0.5, 0.75]$, $[0.75, 1]$.
+  \item Obliczmy wartości funkcji w środku każdego przedziału:
+        \begin{align*}
+          x_1 & = 0.125, & f(x_1) & = \frac{4}{1 + 0.125^2}, \\
+          x_2 & = 0.375, & f(x_2) & = \frac{4}{1 + 0.375^2}, \\
+          x_3 & = 0.625, & f(x_3) & = \frac{4}{1 + 0.625^2}, \\
+          x_4 & = 0.875, & f(x_4) & = \frac{4}{1 + 0.875^2}.
+        \end{align*}
+  \item Wyznaczmy całkę jako sumę wartości funkcji pomnożoną przez szerokość przedziału $dx = 0.25$:
+        \[
+          \text{Całka} \approx dx \cdot \left(f(x_1) + f(x_2) + f(x_3) + f(x_4)\right).
+        \]
+\end{enumerate}
+Przybliżona wartość całki odpowiada aproksymacji liczby $\pi$.
+
+\subsection{Opis narzędzi użytych w projekcie}
+\subsubsection{CMake i Ninja}
+CMake został wykorzystany jako generator systemu budowania, ułatwiający zarządzanie zależnościami i konfiguracją projektu. Ninja, będący szybkim systemem budowania, został zastosowany w celu optymalizacji czasu kompilacji.
+
+\subsubsection{Doxygen}
+Doxygen umożliwił automatyczne generowanie dokumentacji kodu źródłowego w formie strony internetowej oraz plików PDF. Dzięki wykorzystaniu motywu Doxygen Awesome, strona dokumentacji zyskała nowoczesny i czytelny wygląd.
+
+\subsubsection{Git i GitHub Actions}
+System kontroli wersji Git zapewnił śledzenie zmian w kodzie oraz ich zarządzanie. GitHub Actions umożliwił automatyczne testowanie kodu, generowanie dokumentacji i tworzenie wydań projektu.
+
+\subsubsection{Komponenty środowiska kompilacji}
+Kompilacja projektu była przeprowadzana z użyciem GCC na systemie Linux oraz MinGW-w64 dla systemu Windows. Dostosowane środowiska MSYS2 (MinGW64/UCRT64) zapewniły kompatybilność z różnymi platformami.
