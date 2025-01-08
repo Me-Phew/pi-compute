@@ -1,5 +1,21 @@
 \newpage
 \section{Ogólne określenie wymagań}		%1
-%Określenie celu pracy, co chcemy uzyskać, jakie przewidujemy wyniki
+Celem projektu jest stworzenie programu w języku C++, który umożliwi obliczenie przybliżonej wartości liczby \(\pi\) metodą numerycznego całkowania całki oznaczonej. Program powinien spełniać następujące wymagania:
 
-\input{tex/template_tutorial.tex}
+\begin{itemize}
+  \item Możliwość ustawienia przez użytkownika liczby podziałów przedziału całkowania, co wpływa na dokładność obliczeń.
+  \item Obsługa wielowątkowości z możliwością ustawienia liczby wątków w celu zrównoleglenia obliczeń matematycznych.
+  \item Wykorzystanie biblioteki \texttt{thread} zgodnej ze standardem POSIX.
+  \item Wyświetlanie wyniku obliczonej całki oraz czasu wykonywania obliczeń na ekranie terminala.
+\end{itemize}
+
+Zakładamy, że wynikiem programu będzie poprawne obliczenie liczby \(\pi\) z dokładnością zależną od liczby podziałów przedziału oraz efektywne wykorzystanie dostępnych zasobów sprzętowych dzięki zastosowaniu wielowątkowości.
+
+Przewidywane wyniki obejmują:
+\begin{itemize}
+  \item Skrócenie czasu obliczeń wraz ze wzrostem liczby wątków, co pozwoli zweryfikować poprawność implementacji wielowątkowości.
+  \item Uzyskanie stabilnych wyników obliczeń \(\pi\) niezależnie od liczby wątków, przy założeniu wystarczającej liczby podziałów przedziału całkowania.
+  \item Obserwację wpływu parametrów sprzętowych (liczba rdzeni, częstotliwość procesora) na wydajność programu.
+\end{itemize}
+
+Oczekujemy, że program pozwoli także na przeprowadzenie testów wydajnościowych i analizy wyników, które zostaną przedstawione w postaci wykresów i tabel. Wyniki te posłużą do oceny efektywności zastosowanych rozwiązań wielowątkowych oraz wyciągnięcia wniosków na temat wpływu ilości wątków na czas wykonania programu.

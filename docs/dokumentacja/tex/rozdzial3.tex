@@ -1,6 +1,112 @@
 \newpage
-\section{Projektowanie}		%3
-%Napisać z jakich narzędzi będziemy korzystać (kompilator, język programowania), git, biblioteki dodatkowe, itp.
-%Opisać szczegółowe ustawienia kompilatora (jeśli są), powiązania z bibliotekami, itp.
-%Narysować graf, UML, diagram klas, schemat działania algorytmu
-%Jeśli zadanie zakłada przedstawienie jakiegoś narzędzia (np. git, AI) należy opisać sposób jego używania
+\section{Projektowanie}
+
+\subsection{Wykorzystane narzędzia i technologie}
+W projekcie wykorzystano następujące narzędzia oraz technologie:
+\begin{itemize}
+  \item \textbf{Język programowania:} C++17 – zapewnia wysoką wydajność i wsparcie dla programowania wielowątkowego.
+  \item \textbf{Kompilator:} GCC (Linux) oraz MinGW-w64 (Windows) – narzędzia do kompilacji kodu na różnych platformach.
+  \item \textbf{System budowania:}
+        \begin{itemize}
+          \item \textbf{CMake} – generator systemów budowania, umożliwiający łatwe zarządzanie konfiguracją kompilacji i zależnościami.
+          \item \textbf{Ninja} – szybki system budowania przyspieszający proces kompilacji.
+        \end{itemize}
+  \item \textbf{Kontrola wersji:} Git z repozytorium hostowanym na platformie GitHub.
+  \item \textbf{Dokumentacja:}
+        \begin{itemize}
+          \item \textbf{Doxygen} – automatyczne generowanie dokumentacji kodu w formacie HTML i PDF.
+          \item Motyw Doxygen Awesome – nowoczesny i czytelny wygląd dokumentacji.
+        \end{itemize}
+  \item \textbf{Wielowątkowość:} Standardowe biblioteki C++ (\texttt{<thread>} i \texttt{<vector>}) umożliwiające podział zadań na wiele wątków.
+  \item \textbf{Dodatkowe biblioteki:} MSYS2 w wersjach MinGW64 i UCRT64, zapewniające zgodność z różnymi platformami.
+\end{itemize}
+
+\subsection{Szczegółowe ustawienia kompilatora}
+Kompilacja projektu została skonfigurowana z uwzględnieniem następujących parametrów:
+\begin{itemize}
+  \item Flagi kompilatora:
+        \begin{itemize}
+          \item \texttt{-O3} – optymalizacja kodu pod kątem wydajności.
+          \item \texttt{-std=c++17} – ustawienie standardu C++17.
+          \item \texttt{-pthread} – wsparcie dla wielowątkowości.
+        \end{itemize}
+  \item Powiązania z bibliotekami:
+        \begin{itemize}
+          \item Dynamiczne i statyczne linkowanie bibliotek standardowych.
+          \item Kompatybilność z systemami Linux oraz Windows poprzez MinGW-w64.
+        \end{itemize}
+  \item Generowanie dokumentacji:
+        \begin{itemize}
+          \item Narzędzie Doxygen skonfigurowane w pliku \texttt{Doxyfile}.
+          \item Automatyzacja procesu generowania za pomocą GitHub Actions.
+        \end{itemize}
+\end{itemize}
+
+\subsection{Zastosowanie narzędzi AI w projekcie}
+W projekcie użyto narzędzia AI – \textbf{ChatGPT}, które wspierało proces programowania przez generowanie kodu, udzielanie sugestii oraz pomaganie w rozwiązywaniu problemów. Poniżej przedstawiono szczegółową analizę zastosowania AI, odpowiadając na pytania dotyczące jego roli w tworzeniu oprogramowania.
+
+\subsubsection{Proces generowania kodu}
+Kod w projekcie był generowany na podstawie zapytań do ChatGPT, które dotyczyły różnych aspektów programowania. Oto jak przebiegał proces generowania kodu:
+\begin{itemize}
+  \item \textbf{Tworzenie funkcji} – ChatGPT sugerował implementację funkcji matematycznych (np. obliczanie całki numerycznej) lub pomocniczych (np. formatowanie wyników, podział pracy między wątki).
+  \item \textbf{Pomoc w rozwiązywaniu problemów} – ChatGPT pomagał w rozwiązywaniu błędów, takich jak błędna składnia, problemy z pamięcią lub błędy logiczne w algorytmach.
+  \item \textbf{Sugestie dotyczące struktur danych} – Często ChatGPT proponował odpowiednie struktury danych do rozwiązania problemu (np. \texttt{std::vector} do przechowywania wyników obliczeń w wątkach).
+\end{itemize}
+ChatGPT dostarczał także wyjaśnienia na temat używanych konstrukcji, co pozwalało na lepsze zrozumienie tworzonych rozwiązań.
+
+\subsubsection{Ocena poprawności generowanego kodu}
+\begin{enumerate}
+  \item \textbf{Poprawność merytoryczna} \\
+        ChatGPT generował kod, który w większości przypadków był poprawny merytorycznie, jednak niektóre zapytania wymagały poprawek, szczególnie w zakresie optymalizacji algorytmów. Przykładowo:
+        \begin{itemize}
+          \item Kod początkowy generowany przez AI często nie uwzględniał wielowątkowości, co było wymagane w projekcie.
+          \item Pojawiały się również pomysły na nieoptymalne algorytmy (np. zbędne obliczenia, nieefektywne wykorzystanie zasobów).
+        \end{itemize}
+        Mimo to, ChatGPT dostarczał wartościowych wskazówek, które mogły być łatwo dostosowane do specyfiki projektu.
+
+  \item \textbf{Kompilacja kodu} \\
+        Po każdej modyfikacji kodu generowanego przez ChatGPT, projekt był kompilowany przy użyciu odpowiednich kompilatorów (GCC dla systemu Linux i MinGW-w64 dla systemu Windows). W większości przypadków kod generowany przez ChatGPT kompilował się bez problemów. Jednak zdarzały się błędy takie jak:
+        \begin{itemize}
+          \item Brakujące deklaracje funkcji lub niepoprawnie zadeklarowane zmienne.
+          \item Problemy z linkowaniem zewnętrznych bibliotek, które były pomijane w wygenerowanym kodzie.
+        \end{itemize}
+        Te problemy były stosunkowo łatwe do zidentyfikowania i naprawienia.
+
+  \item \textbf{Uruchamianie kodu} \\
+        Kod wygenerowany przez ChatGPT uruchamiał się poprawnie w większości przypadków. Przykładowo:
+        \begin{itemize}
+          \item Funkcje obliczające całkę były poprawnie zaimplementowane, a wyniki zwracane przez funkcje były zgodne z oczekiwaniami.
+          \item W przypadku problemów, takich jak niepoprawny podział pracy w wątkach, ChatGPT udzielał sugestii, jak poprawić logikę.
+        \end{itemize}
+        Czasami jednak należało dostosować sposób dzielenia pracy na wątki, aby uniknąć błędów synchronizacji lub problemów z wydajnością.
+
+  \item \textbf{Błędy kompilacji} \\
+        Po wprowadzeniu wygenerowanego kodu do projektu, zauważono drobne błędy kompilacji, takie jak:
+        \begin{itemize}
+          \item Literówki w nazwach funkcji lub zmiennych.
+          \item Niezgodności w typach danych (np. \texttt{int} vs \texttt{long long}).
+          \item Nieprawidłowe użycie wskaźników lub referencji w funkcjach wielowątkowych.
+        \end{itemize}
+        Błędy te były stosunkowo łatwe do naprawienia i w większości przypadków nie wymagały dużej interwencji.
+
+  \item \textbf{Błędy wykonania} \\
+        Po uruchomieniu programu nie wystąpiły żadne rażące błędy wykonania, takie jak wycieki pamięci czy zawieszenia. ChatGPT generował kod z użyciem standardowych mechanizmów C++ (np. \texttt{std::vector}, \texttt{std::thread}), które zapewniały odpowiednie zarządzanie pamięcią. Jednak w niektórych przypadkach konieczna była optymalizacja obliczeń, aby przy dużej liczbie wątków uniknąć błędów wynikających z niewłaściwego podziału zasobów.
+
+  \item \textbf{Generowanie kodu} \\
+        Proces generowania kodu z wykorzystaniem ChatGPT był powtarzalny i wymagał kilku iteracji. Początkowo generowany kod wymagał poprawek, zwłaszcza w kwestii podziału pracy w wątkach i synchronizacji wyników. W rezultacie konieczne było kilkakrotne generowanie i modyfikowanie kodu:
+        \begin{itemize}
+          \item Pierwsze propozycje generowanego kodu były ogólne i nie uwzględniały wielowątkowości.
+          \item Późniejsze iteracje koncentrowały się na poprawkach związanych z optymalizacją obliczeń i wprowadzeniem równoległości.
+        \end{itemize}
+
+  \item \textbf{Poprawność dołączonych bibliotek} \\
+        ChatGPT poprawnie sugerował użycie odpowiednich bibliotek standardowych C++, takich jak \texttt{<vector>} i \texttt{<thread>}. Jednak w niektórych przypadkach musiałem ręcznie sprawdzić, czy odpowiednie nagłówki były poprawnie załączone i czy wersja kompilatora obsługiwała wymagane funkcje.
+        Należy jednak szczególnie uważać na sugestie pobierania zewnętrznych bibliotek, ponieważ mogą one zawierać niebezpieczny kod. \href{https://www.darkreading.com/application-security/chatgpt-hallucinations-developers-supply-chain-malware-attacks}{Więcej na ten temat \cite{LLMSupplyChainAttacks}}
+
+  \item \textbf{Wyniki obliczeń} \\
+        Po każdej iteracji testów i wprowadzeniu zmian sugerowanych przez ChatGPT, otrzymywałem poprawne wyniki obliczeń przybliżonej liczby \(\pi\). Wartości zwrócone przez program były zgodne z oczekiwaniami matematycznymi, a czas obliczeń zmieniał się zgodnie z liczbą wątków i podziałem pracy.
+
+  \item \textbf{Wnioski z zastosowania narzędzi AI}
+        ChatGPT okazał się cennym narzędziem wspomagającym rozwój projektu. Generował poprawny kod, choć czasami wymagał poprawek w kwestiach optymalizacji i szczegółów implementacji. Dodatkowo, pomoc w rozwiązywaniu błędów kompilacji i wykonania umożliwiła szybkie identyfikowanie problemów i dostosowywanie rozwiązań. Choć nie zastępuje pełnej wiedzy programistycznej, ChatGPT stanowi skuteczne wsparcie w procesie programowania, szczególnie w sytuacjach wymagających szybkich podpowiedzi czy rozwiązań.
+
+\end{enumerate}
